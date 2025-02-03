@@ -1,6 +1,6 @@
 # ws-reader
 
-Python Websocket reader based off Selenium and Chromedriver.
+Python Websocket listener based off Selenium and Chromedriver.
 Able to read inbound and outbound websocket messages in a browser session.
 
 ## Requirements
@@ -23,7 +23,7 @@ pip install selenium
 
 ```py
 # Import listener
-from ws_reader import WSListener
+from ws_listener import WSListener
 
 # Create a listener
 listener = WSListener(
