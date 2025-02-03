@@ -1,4 +1,4 @@
-# ws-reader
+# ws-listener
 
 Python Websocket listener based off Selenium and Chromedriver.
 Able to read inbound and outbound websocket messages in a browser session.
