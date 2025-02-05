@@ -59,3 +59,5 @@ These are the properties of a message:
 -`timestamp` (float): The time at which the message was received, represented as a Unix timestamp.
 
 -`url` (str): The URL of the WebSocket endpoint from which the message was received or sent to.
+
+-`received` (bool): Flag indicating if the packet was received (True) or sent (False).

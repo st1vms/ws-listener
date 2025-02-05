@@ -22,12 +22,14 @@ class WebSocketMessage:
         `request_id` (str): A unique identifier for the request associated with the message.
         `timestamp` (float): The time at which the message was received, represented as a Unix timestamp.
         `url` (str): The URL of the WebSocket endpoint from which the message was received or sent to.
+        `received` (bool): Flag indicating if the packet was received (True) or sent (False).
     """
 
     payload: str
     request_id: str
     timestamp: float
     url: str
+    received: bool
 
 
 class WSListener:
@@ -110,7 +112,9 @@ class WSListener:
                     timestamp = message["params"].get("timestamp")
                     ws_url = self.websocket_url_map.get(request_id, "Unknown URL")
                     self.messages.put(
-                        WebSocketMessage(payload, request_id, timestamp, ws_url)
+                        WebSocketMessage(
+                            payload, request_id, timestamp, ws_url, received=True
+                        )
                     )
 
                     if self.logging:
@@ -122,7 +126,9 @@ class WSListener:
                     timestamp = message["params"].get("timestamp")
                     ws_url = self.websocket_url_map.get(request_id, "Unknown URL")
                     self.messages.put(
-                        WebSocketMessage(payload, request_id, timestamp, ws_url)
+                        WebSocketMessage(
+                            payload, request_id, timestamp, ws_url, received=False
+                        )
                     )
 
                     if self.logging:
